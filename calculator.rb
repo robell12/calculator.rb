@@ -1,6 +1,15 @@
 # keep_going = true
 # while keep_going
 
+
+# add an array to turn the numbers into ther array and split the string
+#allow order of operations
+#make it work with float
+#calculator history
+#memory function
+#user type quit to exit
+
+arr = []
 def name_input
 	puts "What is your name?"
 	@name = gets.strip
@@ -13,12 +22,12 @@ name_input
 
 def calc_menu
 	puts " "
-	puts "1) Add"
-	puts "2) Subtract"
-	puts "3) Multiply"
-	puts "4) Divid"
-	puts "5) Find the remainder of division"
-	puts "6) Quit"
+	puts "+ Add"
+	puts "- Subtract"
+	puts "* Multiply"
+	puts "/ Divid"
+	puts "% Find the remainder of division"
+	puts "Quit"
 	puts "What do you want to do #{@name}?"
 	puts " "
 	@choice = gets.strip.downcase
@@ -32,6 +41,8 @@ calc_menu
 def addition_num
 	puts "What is the first number you want to add?"
 	number_one = gets.strip.to_i
+	arr.push(number_one)
+	puts "What operation do you want (+, -, *, /, %)"
 	puts "What is the second number you want to add"
 	number_two = gets.strip.to_i
 	new_number = number_one + number_two
@@ -52,7 +63,7 @@ def subtrac_num
 end
 
 def multiply_num
-	puts "What is the first number you want to multiply?"
+	puts "What is the first number you wancdt to multiply?"
 	number_one = gets.strip.to_i
 	puts "What is the second number you want to multiply"
 	number_two = gets.strip.to_i
@@ -86,17 +97,17 @@ def remainder_num
 end
 
 case @choice
-when "1" , "add"
+when "+" , "add"
 	addition_num
-when "2" , "subtract"
+when "-" , "subtract"
 	subtrac_num
-when "3" , "multiply"
+when "*" , "multiply"
 	multiply_num
-when "4" , "divide"
+when "/" , "divide"
 	divide_num
-when "5" , "remainder", "find remainder", "find the remainder", "find the remainder of fraction", "find"
+when "%" , "remainder", "find remainder", "find the remainder", "find the remainder of fraction", "find"
 	remainder_num
-when "6", "quit", "q"
+when "quit", "q"
 	exit
 	puts "You successfully quit!"
 else 
